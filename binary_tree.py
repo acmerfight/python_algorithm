@@ -58,13 +58,13 @@ def get_tree_depth(root, depth=0):
     else:
         left_depth = get_tree_depth(root.left)
         right_depth = get_tree_depth(root.right)
-    return max(left_depth, right_depth) + 1 
+    return max(left_depth, right_depth) + 1
 
 def is_banlanced(root, depth_info={}):
     """ O(n)"""
     if root is None:
         depth_info["depth"] = 0
-        return True 
+        return True
     left_depth = {}
     right_depth = {}
     if is_banlanced(root.left, left_depth) and is_banlanced(root.right, right_depth):
@@ -84,7 +84,10 @@ def is_banlanced_one(root):
         return False
     else:
         return is_banlanced_one(root.left) and is_banlanced_one(root.right)
-    
+
+def lca():
+    pass
+
 
 
 if __name__ == "__main__":
