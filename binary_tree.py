@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class stack(list):
     def push(self, item):
         self.append(item)
@@ -12,6 +15,18 @@ class TreeNode(object):
         self.data = data
         self.left = left
         self.right = right
+
+
+def level_traversal(root):
+    q = deque()
+    q.append(root)
+    while q:
+        node = q.popleft()
+        print node.data
+        if node.left is not None:
+            q.append(node.left)
+        if node.right is not None:
+            q.append(node.right)
 
 
 def pre_order(root):
@@ -93,7 +108,7 @@ def lca():
 if __name__ == "__main__":
     node1 = TreeNode(1)
     node2 = TreeNode(2)
-    #node2.left = TreeNode(8)
+    node2.left = TreeNode(8)
     node1.left = TreeNode(9)
     node1.right = TreeNode(10)
     root = TreeNode(0, node1, node2)
@@ -105,6 +120,7 @@ if __name__ == "__main__":
     #in_order(root)
     #print "post_order"
     #post_order(root)
+    level_traversal(root)
 
     print get_tree_depth(root)
     print is_banlanced(root)
