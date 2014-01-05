@@ -1,3 +1,9 @@
+#coding=utf-8
+
+#要求找出一个互异数组中两个元素的最大差值。具体描述如下：
+#有一个整数数组d[0,...,n-1]，并且数组满足不存在相同的元素，要求找出
+#1) max{d[i] - d[j]} 且 i > j;(对应实际生活中的股票买卖，找出可能的最大收益)
+
 def max_diff(a):
     assert len(a) >= 2, "list's length maust greater than two"
     diff = a[1] - a[0]
