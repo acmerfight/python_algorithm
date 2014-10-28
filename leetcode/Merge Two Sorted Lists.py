@@ -1,0 +1,19 @@
+class Solution:
+    # @param two ListNodes
+    # @return a ListNode
+    def mergeTwoLists(self, l1, l2):
+        dummy = ListNode(0)
+        current_node = dummy
+        while l1 and l2:
+            if l1.val > l2.val:
+                current_node.next = l2
+                l2 = l2.next
+            else:
+                current_node.next = l1
+                l1 = l1.next
+            current_node = current_node.next
+        if l1:
+            current_node.next = l1
+        else:
+            current_node.next = l2
+        return dummy.next
