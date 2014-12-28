@@ -19,6 +19,7 @@ class Solution:
 print Solution().permute([0, 1])
 
 
+# from https://github.com/leetcoders/Leetcode-Py/blob/master/Permutations.py
 class Solution:
     def permute(self, nums):
         solutions = [[]]
