@@ -1,6 +1,6 @@
 
 
-# have bug can't ac
+# may be have bug can't ac
 class Solution:
     # @param num, a list of integer
     # @return a list of lists of integers
@@ -17,3 +17,15 @@ class Solution:
         return result
 
 print Solution().permute([0, 1])
+
+
+class Solution:
+    def permute(self, nums):
+        solutions = [[]]
+        for num in nums:
+            next = []
+            for solution in solutions:
+                for i in range(len(solution) + 1):
+                    next.append(solution[:i] + [num] + solution[i:])
+            solutions = next
+        return solutions
