@@ -1,13 +1,13 @@
+# https://leetcode.com/problems/remove-element/
+
 class Solution:
     # @param {integer[]} nums
     # @param {integer} val
     # @return {integer}
     def removeElement(self, nums, val):
-        copy_data = nums[:]
+        current_index = 0
         for index in xrange(len(nums)):
-            if nums[index] == val:
-                copy_data.remove(val)
-        return len(copy_data)
-
-
-print Solution().removeElement([4, 5], 4)
+            if val != nums[index]:
+                nums[current_index] = nums[index]
+                current_index += 1
+        return len(nums[:current_index])
