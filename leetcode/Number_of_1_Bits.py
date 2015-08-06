@@ -5,4 +5,10 @@ class Solution:
     # @param n, an integer
     # @return an integer
     def hammingWeight(self, n):
-        pass
+        res = ""
+        while n:
+            if  n % 2 == 0:
+                res += "0"
+            else:
+                res += "1"
+            n /= 2
