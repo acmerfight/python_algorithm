@@ -1,31 +1,28 @@
 
-def qsort(arr): 
+def qsort(arr):
     if len(arr) <= 1:
         return arr
     else:
         return qsort([x for x in arr[1:] if x < arr[0]]) + [arr[0]] + qsort([x for x in arr[1:] if x >= arr[0]])
 
-def qsort(a):
-    length = len(a)
-    start_index = 1
-    end_index = length - 1
-    while start_index <= end_index:
-        while a[start_index] <= a[0] and start_index <= end_index:
-            start_index += 1
-            if start_index == end_index:
-                break
-        while a[end_index] >= a[0] and start_index <= end_index:
-            end_index -= 1
-            if start_index == end_index:
-                break
-        print start_index, end_index
-        a[start_index], a[end_index] = a[end_index], a[start_index]
-        print a
-        start_index += 1
-        end_index -= 1
-    print start_index, end_index
-    a[0], a[start_index] = a[start_index], a[0]
-    print a
+def partition(array, begin, end):
+    pivot = begin
+    for i in xrange(begin+1, end+1):
+        if array[i] <= array[begin]:
+            pivot += 1
+            array[i], array[pivot] = array[pivot], array[i]
+    array[pivot], array[begin] = array[begin], array[pivot]
+    return pivot
 
-qsort([1, 3, 2, -1])
 
+def quicksort(array, begin=0, end=None):
+    if end is None:
+        end = len(array) - 1
+    if begin >= end:
+        return
+    pivot = partition(array, begin, end)
+    quicksort(array, begin, pivot-1)
+    quicksort(array, pivot+1, end)
+
+
+print qsort([1, 23, 10, -9]) 
