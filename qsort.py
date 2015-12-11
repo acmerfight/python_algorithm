@@ -5,6 +5,7 @@ def qsort(arr):
     else:
         return qsort([x for x in arr[1:] if x < arr[0]]) + [arr[0]] + qsort([x for x in arr[1:] if x >= arr[0]])
 
+
 def partition(array, begin, end):
     pivot = begin
     for i in xrange(begin+1, end+1):
@@ -25,4 +26,4 @@ def quicksort(array, begin=0, end=None):
     quicksort(array, pivot+1, end)
 
 
-print qsort([1, 23, 10, -9]) 
+qsort([1, 23, 10, -9]) == qsort([1, 23, 10, -9]) 
