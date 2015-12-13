@@ -1,9 +1,10 @@
 
 
-def merge_sort(arr, start, end):
-    mid = start + (end - start) / 2
-    merge_sort(arr, start, mid)
-    merge_sort(arr, mid + 1, end)
+def merge_sort(arr):
+    mid = len(arr) / 2
+    if len(arr) <= 1:
+        return arr
+    return merge(merge_sort(arr[:mid]), merge_sort(arr[mid:]))
 
 
 def merge(arr1, arr2):
@@ -17,3 +18,7 @@ def merge(arr1, arr2):
             res.append(arr2[j])
             j += 1
     return res + arr1[i:] + arr2[j:]
+
+
+print merge([1], [2, 2, 8])
+print merge_sort([1, 3, 2, 10, 5, 5, 10])
