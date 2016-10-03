@@ -4,29 +4,24 @@ class Solution(object):
         :type str: str
         :rtype: int
         """
+        result = 0
         if not str:
-            return 0
+            return result
         i = 0
-        for char in str:
-            if char == " ":
-                i += 1
-            else:
-                break
-        result = ""
-        if str[i] in ("+", "-"):
-            result = str[i]
+        while str[i] == " ":
+            i += 1
+        sign = +1
+        if str[i] == "+" or str[i] == "-":
+            sign = int(str[i] + "1")
             i += 1
         for char in str[i:]:
             if char.isdigit():
-                result += char
+                result = int(result) * 10 + int(char)
             else:
                 break
-        print result, "xx"
-        if (len(result) == 1 and result in "-+") or not result:
-            return 0
-        if int(result) > 2147483647:
+        result *= sign
+        if result > 2147483647:
             return 2147483647
-        if int(result) < -2147483648:
+        if result < -2147483648:
             return -2147483648
-        return int(result)
-
+        return result
