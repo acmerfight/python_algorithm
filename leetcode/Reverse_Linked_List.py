@@ -11,11 +11,12 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        cur = None
-        while head:
-            next_node = head.next
-            head.next = cur
-            cur = head
-            head = next_node
-        return cur
+        pre_node = None
+        cur_node = head
+        while cur_node:
+            next_node = cur_node.next
+            cur_node.next = pre_node
+            pre_node = cur_node
+            cur_node = next_node
+        return pre_node
 
