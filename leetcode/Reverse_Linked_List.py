@@ -20,3 +20,15 @@ class Solution(object):
             cur_node = next_node
         return pre_node
 
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head or not head.next:
+            return head
+        res_node = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return res_node
